@@ -1,6 +1,7 @@
 package ch.fhnw.edu.rental.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 public class Rental {
@@ -68,6 +69,23 @@ public class Rental {
 
 	public void setRentalDate(LocalDate rentalDate) {
 		this.rentalDate = rentalDate;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Rental rental = (Rental) o;
+		return rentalDays == rental.rentalDays &&
+				Objects.equals(id, rental.id) &&
+				Objects.equals(movie, rental.movie) &&
+				Objects.equals(user, rental.user) &&
+				Objects.equals(rentalDate, rental.rentalDate);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, movie, user, rentalDate, rentalDays);
 	}
 
 	public void setRentalDays(int rentalDays) {

@@ -1,2 +1,6 @@
 .idea
 spring-ioc/gradle
+movierental.memory/out
+spring-config/build
+spring-config/out
+.gradle

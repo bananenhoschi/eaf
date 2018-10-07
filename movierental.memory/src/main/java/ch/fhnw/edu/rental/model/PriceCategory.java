@@ -1,6 +1,8 @@
 package ch.fhnw.edu.rental.model;
 
 
+import java.util.Objects;
+
 public abstract class PriceCategory {
 	private Long id;
 
@@ -16,5 +18,19 @@ public abstract class PriceCategory {
 
 	public int getFrequentRenterPoints(int daysRented) {
 		return 1;
+	}
+
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		PriceCategory that = (PriceCategory) o;
+		return Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

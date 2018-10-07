@@ -2,6 +2,7 @@ package ch.fhnw.edu.rental.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 	private Long id;
@@ -65,4 +66,21 @@ public class User {
 		return result;
 	}
 
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return Objects.equals(id, user.id) &&
+				Objects.equals(lastName, user.lastName) &&
+				Objects.equals(firstName, user.firstName) &&
+				Objects.equals(email, user.email) &&
+				Objects.equals(rentals, user.rentals);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, lastName, firstName, email, rentals);
+	}
 }

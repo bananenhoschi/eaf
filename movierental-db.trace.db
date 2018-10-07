@@ -1,0 +1,24 @@
+2018-10-03 22:30:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]
+2018-10-03 22:31:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]
+2018-10-03 22:32:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]
+2018-10-03 22:32:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]
+2018-10-03 23:01:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]
+2018-10-03 23:05:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "MOVIE" nicht gefunden
+Table "MOVIE" not found; SQL statement:
+SELECT * FROM MOVIE [42102-197]

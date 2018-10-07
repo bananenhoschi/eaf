@@ -4,6 +4,10 @@ import java.lang.reflect.Method;
 
 import javax.annotation.PostConstruct;
 
+import ch.fhnw.edu.rental.persistence.jdbc.JdbcMovieRepository;
+import ch.fhnw.edu.rental.persistence.jdbc.JdbcPriceCategoryRepository;
+import ch.fhnw.edu.rental.persistence.jdbc.JdbcRentalRepository;
+import ch.fhnw.edu.rental.persistence.jdbc.JdbcUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -17,7 +21,7 @@ import ch.fhnw.edu.rental.persistence.PriceCategoryRepository;
 import ch.fhnw.edu.rental.persistence.RentalRepository;
 import ch.fhnw.edu.rental.persistence.UserRepository;
 
-@Component
+//@Component
 public class TransactionManager implements PlatformTransactionManager {
 	
 	@Autowired
