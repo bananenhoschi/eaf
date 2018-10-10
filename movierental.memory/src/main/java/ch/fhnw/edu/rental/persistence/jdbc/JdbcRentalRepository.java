@@ -114,6 +114,7 @@ public class JdbcRentalRepository extends RentalRepositoryImpl {
 
         Rental rental = new Rental(user,movie
                 , rs.getInt("rental_rentaldays"));
+        rental.setId(rs.getLong("RENTAL_ID"));
         return rental;
 
     }
