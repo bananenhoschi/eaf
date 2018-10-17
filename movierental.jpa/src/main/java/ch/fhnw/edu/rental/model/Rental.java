@@ -1,13 +1,27 @@
 package ch.fhnw.edu.rental.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "RENTALS")
 public class Rental {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "RENTAL_ID")
     private Long id;
 
+    @OneToOne
     private Movie movie;
+
+    @ManyToOne
     private User user;
+
+    @Column(name = "RENTAL_RENTALDATE")
     private LocalDate rentalDate;
+
+    @Column(name = "RENTAL_RENTALDAYS")
     private int rentalDays;
 
     public Rental(User user, Movie movie, int rentalDays) {
