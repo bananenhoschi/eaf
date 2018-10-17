@@ -108,9 +108,7 @@ public class JdbcRentalRepository extends RentalRepositoryImpl {
             user = userRepository.findById(userId).get();
         }
 
-
         Movie movie = movieRepository.findById(movieId).get();
-        movie.setRented(false);
 
         Rental rental = new Rental(user,movie
                 , rs.getInt("rental_rentaldays"));

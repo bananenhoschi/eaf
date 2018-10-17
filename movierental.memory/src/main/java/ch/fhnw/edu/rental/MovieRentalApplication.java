@@ -16,7 +16,7 @@ public class MovieRentalApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(MovieRentalApplication.class)
 			.headless(false) // we start a GUI and are not headless though
-			.web(WebApplicationType.NONE) // set to SERVLET if h2 console should be enabled
+			.web(WebApplicationType.SERVLET) // set to SERVLET if h2 console should be enabled
 			.run(args);
 	}
 

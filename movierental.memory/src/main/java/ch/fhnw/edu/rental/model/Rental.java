@@ -26,7 +26,6 @@ public class Rental {
 		this.user = user;
 		user.getRentals().add(this);
 		this.movie = movie;
-		movie.setRented(true);
 		this.rentalDays = rentalDays;
 		this.rentalDate = rentalDate;
 	}
