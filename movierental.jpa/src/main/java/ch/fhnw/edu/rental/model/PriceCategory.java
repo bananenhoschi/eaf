@@ -2,9 +2,9 @@ package ch.fhnw.edu.rental.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "PriceCategory")
 @Table(name = "PRICECATEGORIES")
-@DiscriminatorColumn( name = "PRICECATEGORY_TYPE")
+@DiscriminatorColumn(name="PRICECATEGORY_TYPE")
 public abstract class PriceCategory {
 
     @Id

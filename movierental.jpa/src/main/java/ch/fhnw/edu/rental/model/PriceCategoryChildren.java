@@ -2,6 +2,7 @@ package ch.fhnw.edu.rental.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue("Children")

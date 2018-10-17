@@ -3,7 +3,7 @@ package ch.fhnw.edu.rental.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "Rental")
 @Table(name = "RENTALS")
 public class Rental {
 
@@ -13,9 +13,11 @@ public class Rental {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
 
     @ManyToOne
+    @JoinColumn(name="USER_ID")
     private User user;
 
     @Column(name = "RENTAL_RENTALDATE")
@@ -23,6 +25,10 @@ public class Rental {
 
     @Column(name = "RENTAL_RENTALDAYS")
     private int rentalDays;
+
+    private Rental() {
+
+    }
 
     public Rental(User user, Movie movie, int rentalDays) {
         this(user, movie, rentalDays, LocalDate.now());

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 
-@Entity
+@Entity(name = "Movie")
 @Table(name = "MOVIES")
 public class Movie {
 
@@ -22,8 +22,13 @@ public class Movie {
     @Column(name = "MOVIE_RENTED")
     private boolean rented;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name="PRICECATEGORY_FK")
     private PriceCategory priceCategory;
+
+    private Movie(){
+
+    }
 
     public Movie(String title, LocalDate releaseDate, PriceCategory priceCategory) throws NullPointerException {
         if ((title == null) || (releaseDate == null) || (priceCategory == null)) {

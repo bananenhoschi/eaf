@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "User")
 @Table(name = "USERS")
 public class User {
 
@@ -22,8 +22,11 @@ public class User {
     @Column(name = "USER_EMAIL")
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy="user")
     private List<Rental> rentals;
+
+    private User() {
+    }
 
     public User(String lastName, String firstName) {
         this.lastName = lastName;

@@ -1,56 +1,60 @@
 package ch.fhnw.edu.rental.persistence.impl;
 
+import ch.fhnw.edu.rental.model.Movie;
 import ch.fhnw.edu.rental.model.PriceCategory;
 import ch.fhnw.edu.rental.persistence.PriceCategoryRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public class JpaPriceCategoryRepository implements PriceCategoryRepository {
 
+    @PersistenceContext
+    protected EntityManager em;
+
     @Override
     public Optional<PriceCategory> findById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return Optional.ofNullable(em.find(PriceCategory.class, id));
     }
 
     @Override
     public List<PriceCategory> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        TypedQuery<PriceCategory> q = em.createQuery("SELECT p FROM PriceCategory p", PriceCategory.class);
+        return q.getResultList();
     }
 
     @Override
     public PriceCategory save(PriceCategory t) {
-        // TODO Auto-generated method stub
-        return null;
+        return em.merge(t);
     }
 
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-
+        em.remove(em.getReference(PriceCategory.class, id));
     }
 
     @Override
     public void delete(PriceCategory entity) {
-        // TODO Auto-generated method stub
-
+        em.remove(entity);
     }
 
     @Override
     public boolean existsById(Long id) {
-        // TODO Auto-generated method stub
-        return false;
+        TypedQuery<Long> q = em.createQuery(
+                "SELECT COUNT(p) FROM PriceCategory p WHERE p.id = :id", Long.class);
+        q.setParameter("id", id);
+        return q.getSingleResult() > 0;
     }
 
     @Override
     public long count() {
-        // TODO Auto-generated method stub
-        return 0;
+        return em.createQuery("SELECT COUNT(p) FROM PriceCategory p", Long.class).getSingleResult();
     }
-
 
 }
