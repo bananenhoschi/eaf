@@ -4,3 +4,4 @@ movierental.memory/out
 spring-config/build
 spring-config/out
 .gradle
+movierental.jpa/out
