@@ -22,7 +22,7 @@ public class User {
     @Column(name = "USER_EMAIL")
     private String email;
 
-    @OneToMany(mappedBy="user", cascade = {CascadeType.REMOVE})
+    @OneToMany(mappedBy="user", cascade = {CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Rental> rentals;
 
     private User() {
