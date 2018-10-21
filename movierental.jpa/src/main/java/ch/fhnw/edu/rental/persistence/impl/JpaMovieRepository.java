@@ -34,7 +34,11 @@ public class JpaMovieRepository implements MovieRepository {
 
     @Override
     public void deleteById(Long id) {
-        em.remove(em.getReference(Movie.class, id));
+        int isSuccessful = em.createQuery("delete from Movie r where r.id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+        if(isSuccessful == 0)
+            throw new IllegalArgumentException("Could not delete Movie with id " + id);
     }
 
     @Override

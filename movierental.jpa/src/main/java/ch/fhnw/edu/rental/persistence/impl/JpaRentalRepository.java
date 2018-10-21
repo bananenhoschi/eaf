@@ -37,8 +37,11 @@ public class JpaRentalRepository implements RentalRepository {
 
     @Override
     public void deleteById(Long id) {
-        em.remove(em.getReference(Rental.class, id));
-
+        int isSuccessful = em.createQuery("delete from Rental r where r.id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+        if(isSuccessful == 0)
+            throw new IllegalArgumentException("Could not delete Rental with id " + id);
     }
 
     @Override

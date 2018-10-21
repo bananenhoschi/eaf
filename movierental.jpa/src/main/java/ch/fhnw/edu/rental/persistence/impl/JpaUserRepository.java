@@ -35,7 +35,11 @@ public class JpaUserRepository implements UserRepository {
 
     @Override
     public void deleteById(Long id) {
-        em.remove(em.getReference(User.class, id));
+        int isSuccessful = em.createQuery("delete from User r where r.id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+        if(isSuccessful == 0)
+            throw new IllegalArgumentException("Could not delete User with id " + id);
     }
 
     @Override

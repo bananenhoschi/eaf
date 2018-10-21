@@ -27,7 +27,6 @@ public class Rental {
     private int rentalDays;
 
     private Rental() {
-
     }
 
     public Rental(User user, Movie movie, int rentalDays) {

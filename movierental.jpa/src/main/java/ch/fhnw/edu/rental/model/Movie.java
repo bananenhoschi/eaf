@@ -27,7 +27,6 @@ public class Movie {
     private PriceCategory priceCategory;
 
     private Movie(){
-
     }
 
     public Movie(String title, LocalDate releaseDate, PriceCategory priceCategory) throws NullPointerException {

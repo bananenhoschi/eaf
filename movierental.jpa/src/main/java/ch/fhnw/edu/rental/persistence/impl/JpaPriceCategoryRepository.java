@@ -36,8 +36,13 @@ public class JpaPriceCategoryRepository implements PriceCategoryRepository {
 
     @Override
     public void deleteById(Long id) {
-        em.remove(em.getReference(PriceCategory.class, id));
+        int isSuccessful = em.createQuery("delete from PriceCategory r where r.id=:id")
+                .setParameter("id", id)
+                .executeUpdate();
+        if(isSuccessful == 0)
+            throw new IllegalArgumentException("Could not delete PriceCategory with id " + id);
     }
+
 
     @Override
     public void delete(PriceCategory entity) {
