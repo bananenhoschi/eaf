@@ -12,11 +12,11 @@ public class Rental {
     @Column(name = "RENTAL_ID")
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="USER_ID")
     private User user;
 
